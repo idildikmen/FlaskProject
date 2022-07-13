@@ -2,7 +2,7 @@
 
 {% block header %}
   {% if not g.user %}
-    <h1>{% block tit %}Register or Login{% endblock %}</h1>
+    <h1>{% block tit %}WELCOME{% endblock %}</h1>
   {% endif %}
 
   {% if g.user %}
@@ -37,7 +37,7 @@
   {% endif %}
 
   {% if not g.user %}
-    <p class="body">{{ "Nothing to show" }}</p>
+    <p class="body">{{ "You need to be logged in to see what is happening." }}</p>
   {% endif %}
 
 {% endblock %}

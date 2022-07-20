@@ -19,7 +19,7 @@ steps:
     image: wpengine/pylint:latest
     commands:
     - pip install -r requirements.txt
-    - pylint flaskr
+    - pylint flaskr --error-only
 
   - name: sonarqube
     image: aosapps/drone-sonar-plugin

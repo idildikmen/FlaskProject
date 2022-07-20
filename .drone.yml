@@ -18,7 +18,7 @@ steps:
   - name: pylint
     image: wpengine/pylint:latest
     commands:
-    - pylint
+    - pylint flaskr
 
   - name: sonarqube
     image: aosapps/drone-sonar-plugin

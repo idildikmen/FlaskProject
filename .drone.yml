@@ -16,8 +16,14 @@ steps:
   - name: pylint
     image: wpengine/pylint:latest
 
-  - name : sonarqube
-    image : sonarqube:lts-developer
+
+  - name: sonarqube
+    image: aosapps/drone-sonar-plugin
+    settings:
+        sonar_host:
+          from_secret: sonar_host
+        sonar_token:
+          from_secret: sonar_token
 
 
 

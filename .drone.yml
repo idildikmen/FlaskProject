@@ -17,7 +17,7 @@ steps:
     image: wpengine/pylint:latest
 
   - name : sonarqube
-    image : sonarqube
+    image : sonarqube:lts-developer
 
 
 

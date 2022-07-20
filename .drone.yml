@@ -13,8 +13,8 @@ steps:
   - name: gitleaks
     image: zricethezav/gitleaks:latest
 
-  - name: pylint
-    image: wpengine/pylint:latest
+  #- name: pylint
+  #  image: wpengine/pylint:latest
 
 
   - name: sonarqube

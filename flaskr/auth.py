@@ -74,9 +74,9 @@ def load_logged_in_user():
     user_id = session.get('user_id')
 
     if user_id is None:
-        g.user = None
+        g.user = None # pylint: disable=assigning-non-slot
     else:
-        g.user = get_db().execute(
+        g.user = get_db().execute( # pylint: disable=assigning-non-slot
             'SELECT * FROM user WHERE id = ?', (user_id,)
         ).fetchone()
 

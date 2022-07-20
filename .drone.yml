@@ -16,6 +16,9 @@ steps:
   - name: pylint
     image: wpengine/pylint:latest
 
+  - name : sonarqube
+    image : sonarqube
+
 
 
 

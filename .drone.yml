@@ -14,11 +14,8 @@ steps:
     image: zricethezav/gitleaks:latest
 
   - name: pylint
-    stage: linting
-    image: registry.gitlab.com/pipeline-components/pylint:latest
-    script:
-      - pylint **/*.py
-    
+    image: wpengine/pylint:latest
+
 
 
 

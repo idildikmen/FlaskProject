@@ -12,9 +12,7 @@ steps:
 
   - name: gitleaks
     image: zricethezav/gitleaks:latest
-    commands:
-    - completion
-
+    
 
 
 

@@ -13,12 +13,12 @@ steps:
   - name: gitleaks
     image: zricethezav/gitleaks:latest
     commands:
-    - gitleaks detect -v
+    - gitleaks detect -v --exit-code 0
 
   - name: pylint
     image: wpengine/pylint:latest
     commands:
-    - pylint 
+    - pylint
 
   - name: sonarqube
     image: aosapps/drone-sonar-plugin

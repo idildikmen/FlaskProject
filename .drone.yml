@@ -14,7 +14,7 @@ steps:
     image: zricethezav/gitleaks:latest
 
   - name: pylint
-    image: registry.gitlab.com/pipeline-components/pylint:latest
+    image: pipelinecomponents/pylint
     
 
 

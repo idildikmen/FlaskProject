@@ -36,7 +36,7 @@ steps:
     - jf c add default --artifactory-url $frog_host --access-token $frog_token
     - jf pip-config --server-id-resolve default --repo-resolve pypi-remote
     - jf pip install -r requirements.txt --build-name=FlaskBuild --build-number=$DRONE_BUILD_NUMBER
-    - jf bp FlaskBuild $DRONE_BUILD_NUMBER
+    - jf rt bp FlaskBuild $DRONE_BUILD_NUMBER
     environment:
       frog_host:
         from_secret: frog_host

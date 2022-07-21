@@ -13,7 +13,7 @@ steps:
   - name: gitleaks
     image: zricethezav/gitleaks:latest
     commands:
-    - gitleaks detect -v --exit-code 0
+    - gitleaks detect -v
 
   - name: pylint
     image: wpengine/pylint:latest

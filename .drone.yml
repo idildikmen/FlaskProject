@@ -32,8 +32,8 @@ steps:
   - name: jfrog
     image: ateret/jfrog-cli:v4
     commands: 
-    - jf c add --artifactory-url $frog_host --access-token $frog_token
-    - jf pip-config
+    - jf c add default --artifactory-url $frog_host --access-token $frog_token
+    - jf pip-config --server-id-resolve default
     - jf pip install -r requirements.txt --build-name=FlaskBuild --build-number=$DRONE_BUILD_NUMBER
     settings:
       frog_host:

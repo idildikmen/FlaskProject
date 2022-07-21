@@ -2,6 +2,8 @@ import pytest
 from flaskr.db import get_db
 
 
+POST_UPDATE_PAGE = "/1/update"
+
 def test_index(client, auth):
     response = client.get('/')
     assert b"Log In" in response.data
@@ -31,7 +33,7 @@ def test_author_required(app, client, auth):
 
     auth.login()
     # current user can't modify other user's post
-    assert client.post('/1/update').status_code == 403
+    assert client.post(POST_UPDATE_PAGE).status_code == 403
     assert client.post('/1/delete').status_code == 403
     # current user doesn't see edit link
     assert b'href="/1/update"' not in client.get('/').data
@@ -59,8 +61,8 @@ def test_create(client, auth, app):
 
 def test_update(client, auth, app):
     auth.login()
-    assert client.get('/1/update').status_code == 200
-    client.post('/1/update', data={'title': 'updated', 'body': ''})
+    assert client.get(POST_UPDATE_PAGE).status_code == 200
+    client.post(POST_UPDATE_PAGE, data={'title': 'updated', 'body': ''})
 
     with app.app_context():
         db = get_db()
@@ -70,7 +72,7 @@ def test_update(client, auth, app):
 
 @pytest.mark.parametrize('path', (
     '/create',
-    '/1/update',
+    POST_UPDATE_PAGE,
 ))
 def test_create_update_validate(client, auth, path):
     auth.login()

@@ -2,11 +2,12 @@ import pytest
 from flask import g, session
 from flaskr.db import get_db
 
+AUTH_REGISTER_URL = "/auth/register"
 
 def test_register(client, app):
-    assert client.get('/auth/register').status_code == 200
+    assert client.get(AUTH_REGISTER_URL).status_code == 200
     response = client.post(
-        '/auth/register', data={'username': 'a', 'password': 'a'}
+        AUTH_REGISTER_URL, data={'username': 'a', 'password': 'a'}
     )
     assert "/auth/login" in response.headers["Location"]
 
@@ -23,7 +24,7 @@ def test_register(client, app):
 ))
 def test_register_validate_input(client, username, password, message):
     response = client.post(
-        '/auth/register',
+        AUTH_REGISTER_URL,
         data={'username': username, 'password': password}
     )
     assert message in response.data

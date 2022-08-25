@@ -4,16 +4,17 @@ name: default
 
 
 steps:
-  - name: pytest
-    image: databricksdocs/pytest:v0.1.5
-    commands:
-    - pip install -r requirements.txt
-    - pytest
 
   - name: gitleaks
     image: zricethezav/gitleaks:latest
     commands:
     - gitleaks detect -v
+
+  - name: pytest
+    image: databricksdocs/pytest:v0.1.5
+    commands:
+    - pip install -r requirements.txt
+    - pytest
 
   - name: pylint
     image: wpengine/pylint:latest
